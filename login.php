@@ -14,7 +14,7 @@ $abfrage = "SELECT name, passwort FROM login WHERE name LIKE '$username' LIMIT 1
 $ergebnis = mysql_query($abfrage); 
 $row = mysql_fetch_object($ergebnis); 
 
-if($row->passwort == $passwort) 
+if($row->password == $passwort) 
     { 
     $_SESSION["username"] = $username; 
     echo "Login erfolgreich. <br> <a href=\"geheim.php\">Geschützer Bereich</a>"; 
