@@ -12,7 +12,7 @@ $passwort = md5($_POST["password"]);
 
 echo($passwort);
 
-$abfrage = "SELECT name, passwort FROM login WHERE name LIKE '$username' LIMIT 1"; 
+$abfrage = "SELECT name, password FROM users WHERE name LIKE '$username' LIMIT 1"; 
 $ergebnis = mysql_query($abfrage); 
 $row = mysql_fetch_object($ergebnis); 
 
