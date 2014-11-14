@@ -5,7 +5,7 @@ session_start();
 <?php 
 $verbindung = mysql_connect("localhost", "root" , "didsqlpw") 
 or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
-mysql_select_db("users") or die ("Datenbank konnte nicht ausgewählt werden"); 
+mysql_select_db("DataMonitor") or die ("Datenbank konnte nicht ausgewählt werden"); 
 
 $username = $_POST["username"]; 
 $passwort = md5($_POST["password"]); 
