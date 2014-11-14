@@ -10,13 +10,11 @@ mysql_select_db("DataMonitor") or die ("Datenbank konnte nicht ausgewählt werde
 $username = $_POST["username"]; 
 $passwort = md5($_POST["password"]); 
 
-echo($passwort);
 
 $abfrage = "SELECT name, password FROM users WHERE name LIKE '$username' LIMIT 1"; 
 $ergebnis = mysql_query($abfrage); 
 $row = mysql_fetch_object($ergebnis); 
 
-echo($row->password);
 
 if($row->password == $passwort) 
     { 
