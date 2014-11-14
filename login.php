@@ -16,6 +16,8 @@ $abfrage = "SELECT name, passwort FROM login WHERE name LIKE '$username' LIMIT 1
 $ergebnis = mysql_query($abfrage); 
 $row = mysql_fetch_object($ergebnis); 
 
+echo($row->password);
+
 if($row->password == $passwort) 
     { 
     $_SESSION["username"] = $username; 
@@ -23,7 +25,7 @@ if($row->password == $passwort)
     } 
 else 
     { 
-    echo "Benutzername und/oder Passwort waren falsch. <a href=\"index.php\">Login</a>"; 
+    echo "Benutzername und/oder Passwort waren falsch. <a href=\"index.html\">Login</a>"; 
     } 
 
 ?>
