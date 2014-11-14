@@ -10,6 +10,8 @@ mysql_select_db("DataMonitor") or die ("Datenbank konnte nicht ausgewählt werde
 $username = $_POST["username"]; 
 $passwort = md5($_POST["password"]); 
 
+echo($passwort);
+
 $abfrage = "SELECT name, passwort FROM login WHERE name LIKE '$username' LIMIT 1"; 
 $ergebnis = mysql_query($abfrage); 
 $row = mysql_fetch_object($ergebnis); 
@@ -21,7 +23,7 @@ if($row->password == $passwort)
     } 
 else 
     { 
-    echo "Benutzername und/oder Passwort waren falsch. <a href=\"login.html\">Login</a>"; 
+    echo "Benutzername und/oder Passwort waren falsch. <a href=\"index.php\">Login</a>"; 
     } 
 
 ?>
