@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main_table{
+	/*width:99%;*/
+	margin:2px;
+	font-size:11px;
+}
+
+.main_table th{
+	padding:2px;
+	text-align:center;
+	color:#000;
+	background-color: #FFB901;
+}
+
+.main_table tr{
+	padding:3px;
+	margin:3px;
+	/*border-bottom:1px solid #0066FF;*/
+	text-align: right;
+}
+
+.main_table tr:hover{
+	background:#ddd;
+	cursor:default;
+}
+
+.main_table td{
+	padding:4px;
+}
+
+.ueberschrift td{
+	text-align:left;	
+}
+
+.ueberschrift td:hover{
+	background:#FFF;
+}
+
+.heading2{
+	margin-top: 10px;
+	padding: 10px 0px 10px 0px;
+	letter-spacing: 3px;
+	color: green;
+	font-size: 150%;
+}
+
+.heading3{
+	margin-top: 10px;
+	padding: 10px 0px 10px 0px;
+	letter-spacing: 3px;
+	color: #666;
+	font-size: 12px;
+}
+/*
+.tf_tabelle
+{
+	width:100%;
+}
+
+.tf_tabelle th
+{
+	padding:2px;
+  text-align:left;
+  background:#FFCC33;
+  color:#000;
+}
+
+.tf_tabelle thead
+{
+	border-top:1px solid #333333;
+}
+
+.tf_tabelle tr
+{
+	padding:3px;
+  margin:3px;
+  border-bottom:1px solid #0066FF;
+}
+
+.tf_tabelle tr:hover
+{
+	background:#ddd;
+	cursor:default;
+}
+
+.tf_tabelle td
+{
+	padding:4px;
+}
+
+.depot_tabelle
+{
+	margin:4px;
+	margin-top:0px;
+	width:500px;
+}
+
+.depot_tabelle tr:hover
+{
+	background-color:#CCCCCC;
+	cursor:pointer;
+}
+
+.order_info_tabelle
+{
+	border-bottom:1px solid #999999;
+	border-top:1px solid #999999;
+}
+
+.dp_info_tabelle
+{
+	width:250px;
+}
+
+.dp_info_tabelle td
+{
+	width:50%;
+	border-bottom:1px solid #0066FF;
+}
+
+.positiv
+{
+	color:#006600;
+}
+
+.negativ
+{
+	color:#CC0000;
+}
+*/
