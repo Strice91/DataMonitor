@@ -31,8 +31,7 @@ class MySQL
 		 $this->MySQLiObj = new \mysqli($server.":".$port, $user, $password, $db);
 		 
 		 //Prüfen ob ein Fehler aufgetreten ist
-		 if(mysqli_connect_errno())
-		 {
+		 if(mysqli_connect_errno()){
 				 echo "Keine Verbindung zum MySQL-Server möglich.";
 				 trigger_error("MySQL-Connction-Error", E_USER_ERROR);
 				 die();
@@ -49,8 +48,7 @@ class MySQL
      *  
      */
 	 
-	public function __destruct()
-	{
+	public function __destruct(){
 		$this->MySQLiObj->close();	
 	}
 	
@@ -66,31 +64,23 @@ class MySQL
      * @return Array Gibt eine Ergebnismenge zurück 
      */
 	 
-	 public function query($sqlQuery, $resultset = false)
-	 {
+	 public function query($sqlQuery, $resultset = false){
 		 //Letzte SQL Abfrage aufzeichnen
 		 $this->lastSQLQuery = $sqlQuery;
-		 
 		 $result = $this->MySQLiObj->query($sqlQuery);
 
 		 //Ergebis als Array oder plain zurückgeben
-		 if($resultset == true)
-		 {
+		 if($resultset == true){
 			//Status setzen
-			if($result == false)
-			{
+			if($result == false){
 				$this->lastSQLStatus = false;	
 			}
-			else
-			{
+			else{
 				$this->lastSQLStatus = true;	
 			}
-			
 			return $result;
 		 }
-		 
 		 $return = $this->makeArrayResult($result);
-		 
 		 return $return;
 	 }
 	 
@@ -106,35 +96,33 @@ class MySQL
       * @return Array Gibt den ersten Treffer aus
       */
 	 
-	 public function query_first($sqlQuery, $limit=0, $offset=0, $resultset = false)
-	 {
+	 public function query_first($sqlQuery, $limit=0, $offset=0, $resultset = false){
 		 // Prüfe wie viele Zeilen ausgegeben werden sollen
 		 if($limit!=0) $sqlQuery.=" LIMIT $offset, $limit";
 		 
 		 //Letzte SQL Abfrage aufzeichnen
 		 $this->lastSQLQuery = $sqlQuery;
-		 
 		 $result = $this->MySQLiObj->query($sqlQuery);
 		 
 		 //Ergebis als Array oder plain zurückgeben
-		 if($resultset == true)
-		 {
+		 if($resultset == true){
 			//Status setzen
-			if($result == false)
-			{
+			if($result == false){
 				$this->lastSQLStatus = false;	
 			}
-			else
-			{
+			else{
 				$this->lastSQLStatus = true;	
 			}
-			
 			return $result;
 		 }
-		 
 		 $return = $this->makeArrayResult($result);
+		 if(!empty($return)){
+			 return $return[0];
+		 }
+		 else{
+			 return false;
+		 }
 		 
-		 return $return;
 	 }
 	 
 	/** 
@@ -143,11 +131,8 @@ class MySQL
      * @return varchar Die letzte Fehlermeldung wird zurückgegeben 
      */
 	 
-	public function lastSQLError() 
-    { 
-	
+	public function lastSQLError() { 
         return $this->MySQLiObj->error; 
-		
     }
 	
 	/** 
@@ -158,8 +143,7 @@ class MySQL
      * @return Gibt den Übergebenen Wert maskiert zurück 
      */
 	 
-	public function escapeString($value) 
-    { 
+	public function escapeString($value) { 
         return $this->MySQLiObj->real_escape_string($value); 
     }
 	
@@ -173,8 +157,7 @@ class MySQL
       * @param boolean/Array Gibt entweder true, false oder eine Ergebnismenge zurück 
       */
 	 
-	 private function makeArrayResult($ResultObj)
-	 {
+	 private function makeArrayResult($ResultObj){
 		if($ResultObj === false)
 		{	//Es trat ein Fehler auf
 			$this->lastSQLStatus = false;
@@ -191,8 +174,7 @@ class MySQL
 			$array = array();
 			return $array;	
 		}
-		else
-		{
+		else{
 			$array = array();
 			while($line = $ResultObj->fetch_array(MYSQL_ASSOC))	
 			{	//Alle Bezeichner in $line kleinschreiben
@@ -201,7 +183,6 @@ class MySQL
 			
 			//Status der Abfrage setzen
 			$this->lastSQLStatus = true;
-			
 			//Array zurückgeben
 			return $array;
 		}
@@ -217,7 +198,7 @@ class MySQL
 	 public function describe($table)
 	 {
 		 $sql = "DESCRIBE ".$this->escapeString($table)."";
-		 $description = $this->query_first($sql);
+		 $description = $this->query($sql);
 		 return $description;
 	 }
 }

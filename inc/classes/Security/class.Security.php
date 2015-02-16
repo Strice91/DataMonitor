@@ -72,6 +72,21 @@ class Security
 			return false;	
 		}
 	 }
+	 
+	 public static function checkAdminAndRedirect($redirect = false){
+		if($_SESSION['admin'] == 1){
+			return true;
+		}
+		else {
+			if($redirect){
+				echo "<script type='text/javascript'>document.location.href='".PROJECT_HTTP_ROOT."/main.php?content=home';</script>";	
+				header("Location: ".PROJECT_HTTP_ROOT."/main.php?content=home");
+			}
+			else{
+				return false;
+			}
+		}
+	 }
 }
  
 ?>

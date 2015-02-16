@@ -109,10 +109,8 @@ class Table
 	{
 		// Beschreibung der Tabelle aus der Datenbank holen
 		$desc = $GLOBALS['DB']->describe($table);
-		
 		// Bearbeitung bei gefundener Tabelle
-		if(!empty($desc))
-		{
+		if(!empty($desc)){
 			// Anlegen der Beschreibungs Kathegorien
 			$return['Field'] = array();
 			$return['Type'] = array();
@@ -124,8 +122,7 @@ class Table
 			// Auffüllen der Kathegorien mit den Spezifikationen
 			// ['Field'] => ([0] => name1, [1] => name2, ...)
 			// ['Type'] => ([0] => text, [1] => int, ...)
-			foreach($desc as $col)
-			{
+			foreach($desc as $col){
 				array_push($return['Field'],$col['Field']);
 				array_push($return['Type'],$col['Type']);
 				array_push($return['Null'],$col['Null']);

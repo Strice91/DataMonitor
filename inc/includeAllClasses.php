@@ -29,6 +29,9 @@ require_once PROJECT_DOCUMENT_ROOT."/inc/classes/Session/class.SessionHandler.ph
 //Nachrichtenklasse
 require_once PROJECT_DOCUMENT_ROOT."/inc/classes/class.Message.php";
 
+//Benutzerklasse
+require_once PROJECT_DOCUMENT_ROOT."/inc/classes/User/class.User.php";
+
 //Mail-Klasse
 require_once PROJECT_DOCUMENT_ROOT."/inc/classes/Mail/class.phpmailer.php";
 ?>

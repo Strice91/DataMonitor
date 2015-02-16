@@ -10,6 +10,7 @@ System\Security::globalStripSlashes();
 $Table = new System\Table;
 $table = $Table->loadTable('messages');
 
+
 echo '<div style="width: 100%; padding: 20px 0 20px 5px;">';
 if($table)
 {	
@@ -17,21 +18,25 @@ if($table)
 	echo "<table width='500px' class='main_table'>";
 	
 	echo 	"<tr>";	
-	foreach($table['desc']['Field'] as $name)
-	{
-		echo "<th scope='col'>".$name."</th>";
-	}
+	echo		"<th scope='col'>Name</th>";
+	echo		"<th scope='col'>Titel</th>";
+	echo		"<th scope='col'>Inhalt</th>";
+	echo		"<th scope='col'>Stunden</th>";
+	echo		"<th scope='col'>Datum</th>";
 	echo	 "</tr>";
 	
 	foreach($table['cont'] as $row)
 	{
+		$user = new System\User($row['user']);
+		$username = "".$user->prename." ".$user->surname."";
+		$normalDate = date('d.m.y',$row['date']);
+		
 		echo "<tr>";
-		foreach($row as $col)
-		{
-			echo "<td>";
-			echo $col;
-			echo "</td>";
-		}
+		echo 	"<td>".$username."</td>";
+		echo 	"<td>".$row['title']."</td>";
+		echo 	"<td>".$row['content']."</td>";
+		echo 	"<td>".$row['time']."</td>";
+		echo 	"<td>".$normalDate."</td>";
 		echo "</tr>";
 	}
 	

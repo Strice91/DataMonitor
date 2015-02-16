@@ -2,7 +2,7 @@
 /* CSS Document */
 
 .main_table{
-	/*width:99%;*/
+	width:99%;
 	margin:2px;
 	font-size:11px;
 }
@@ -18,7 +18,7 @@
 	padding:3px;
 	margin:3px;
 	/*border-bottom:1px solid #0066FF;*/
-	text-align: right;
+	text-align: left;
 }
 
 .main_table tr:hover{

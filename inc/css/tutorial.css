@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main_tut {
+	width:550px;
+	margin:2px;
+	font-size:11px;
+}
+
+.tut {
+	padding:5px;
+}
+
+.tut_img{
+	padding:5px;
+}

@@ -43,6 +43,14 @@ class Navigation
 				$page = PROJECT_DOCUMENT_ROOT."/inc/pages/user.php";
 				break;
 				
+			case'userNew':
+				$page = PROJECT_DOCUMENT_ROOT."/inc/pages/user_new.php";
+				break;
+				
+			case'passEdit':
+				$page = PROJECT_DOCUMENT_ROOT."/inc/pages/pass_edit.php";
+				break;
+				
 			default:
 				$page = PROJECT_DOCUMENT_ROOT."/inc/pages/home.php";
 				break;

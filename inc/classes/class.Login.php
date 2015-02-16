@@ -14,7 +14,29 @@ class Login
 	public function printLoginForm($checkScript = null)
 	{
 		?>
+        <section id="loginBox">
+            <div style="float:left; width:300px;">
+                <h2>Management</h2>
+            </div>
+            <div>
+                <img src="images/style/logo.png"  />
+            </div>
+            <div>
+                <form method="post" class="minimal" action="<?php echo $checkScript ?>" method="post">
+                    <label for="username">
+                        Username:
+                        <input type="text" name="login" id="username" required="required" />
+                    </label>
+                    <label for="password">
+                        Passwort:
+                        <input type="password" name="password" id="password" required="required" />
+                    </label>
+                    <button type="submit" class="btn-minimal">Login</button>
+                </form>
+            <div>
+		</section>
         
+        <!--
    			 <fieldset style="padding:2px;width:180px;border:1px solid steelblue;"> 
    			 <legend>Login</legend> 
        			<form id="noSpaces" action="<?php echo $checkScript ?>" method="post"> 
@@ -27,7 +49,7 @@ class Login
        				<input type="reset" onFocus="blur();" class="standardSubmit" name="reset" value="Löschen"> 
        			</form> 
     		</fieldset>
-            
+          -->
         <?php
 	}
 	
@@ -48,7 +70,7 @@ class Login
 		$sql = "SELECT * FROM users WHERE login LIKE '".$firstChar."%'";
 		
 		// SQL string übergeben, Daten als array zurück fordern
-		$result = $GLOBALS['DB']->query_first($sql);
+		$result = $GLOBALS['DB']->query($sql);
 		
 		//Eingaben trimmen und führende Leerzeichen abschneiden
 		$login = trim(substr($_POST['login'],0,100));
@@ -68,6 +90,7 @@ class Login
 					$_SESSION['login'] = $login;
 					$_SESSION['userid'] = $data['ID'];
 					$_SESSION['loggedInSince'] = date("d.m.Y H:i", time());
+					$_SESSION['admin'] = $data['admin'];
 					return true;
 				}
 			}

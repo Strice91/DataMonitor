@@ -28,8 +28,8 @@ class HTML
 		echo '<link rel="shortcut icon" href="'.PROJECT_HTTP_ROOT.'/images/favicon.ico" type="image/x-icon">';
 		
 		//Stylsheet einbinden
+		echo '<link href="'.PROJECT_HTTP_ROOT.'/inc/css/login.css" rel="stylesheet" type="text/css" />';
 		echo '<link href="'.PROJECT_HTTP_ROOT.'/inc/css/default.css" rel="stylesheet" type="text/css" />';
-		
 		echo '<mets http-equiv="content-type" content="text/html; charset=UTF-8">'."\n";
 
 		echo '<script src="'.PROJECT_HTTP_ROOT.'/inc/js/default.js" type="text/javascript"></script>';
